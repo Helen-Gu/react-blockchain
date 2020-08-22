@@ -10,7 +10,7 @@ import { createStore, applyMiddleware } from 'redux';
 // A middleware that allows us to write action creators that return a function instead of an action
 import reduxThunk from 'redux-thunk';
 
-import '../stylesheets/App.css';
+import './App.css';
 
 import reducers from './reducers'; // Import all reducers
 import App from './components/App'; // Root component

@@ -1,0 +1,40 @@
+{
+	"status": {
+		"timestamp": "2020-08-22T01:24:48.396Z",
+		"error_code": 0,
+		"error_message": null,
+		"elapsed": 0,
+		"credit_count": 1,
+		"notice": null
+	},
+	"data": {
+		"1": {
+			"id": 1,
+			"name": "Bitcoin",
+			"symbol": "BTC",
+			"slug": "bitcoin",
+			"is_active": 1,
+			"is_fiat": 0,
+			"cmc_rank": 1,
+			"num_market_pairs": 4895,
+			"circulating_supply": 7700000,
+			"total_supply": 8000000,
+			"max_supply": 26000000,
+			"date_added": "2020-03-17T23:06:56.176Z",
+			"tags": [],
+			"platform": null,
+			"last_updated": "2020-08-18T14:18:46.626Z",
+			"quote": {
+				"USD": {
+					"price": 1.1087128686600791,
+					"volume_24h": 19814814.43710325,
+					"market_cap": 550140817.6859534,
+					"percent_change_1h": 0.1501640142877692,
+					"percent_change_24h": -3.4212295041273486,
+					"percent_change_7d": -30.931967081643826,
+					"last_updated": "2020-08-22T01:24:44.647Z"
+				}
+			}
+		}
+	}
+}
