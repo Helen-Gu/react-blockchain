@@ -12,7 +12,7 @@ export const getCryptos = () => (dispatch) => {
 		.then((res) => {
 			const { status, data } = res;
 			if (status.error_code !== 0) {
-				dispatch(handleError(status.error_code));
+				dispatch(handleError(status.error_message));
 			} else {
 				dispatch({
 					type: GET_CRYPTOS,

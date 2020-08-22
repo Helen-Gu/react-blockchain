@@ -48,60 +48,63 @@ class CryptoDataTable extends Component {
 	};
 	render() {
 		return (
-			<table>
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Symbol</th>
-						<th>Name</th>
-						<th className="sortable" onClick={this.sortByColumn('cmc_rank')}>
-							CMC Rank
-							{this.state.sortParams.column === 'cmc_rank'
-								? this.state.sortParams.direction === 'desc'
-									? ' ↓'
-									: ' ↑'
-								: ''}
-						</th>
-						<th className="sortable" onClick={this.sortByColumn('price')}>
-							Price (USD)
-							{this.state.sortParams.column === 'price'
-								? this.state.sortParams.direction === 'desc'
-									? ' ↓'
-									: ' ↑'
-								: ''}
-						</th>
-						<th>Operation</th>
-					</tr>
-				</thead>
-				<tbody>
-					{this.state.data.map((x) => {
-						const { id, symbol, name, cmc_rank, price } = x;
-						return (
-							<tr key={id}>
-								<td>{id}</td>
-								<td>{symbol}</td>
-								<td>{name}</td>
-								<td>{cmc_rank}</td>
-								<td>
-									{parseFloat(price).toLocaleString('en-US', {
-										style: 'currency',
-										currency: 'USD',
-									})}
-								</td>
-								<td className="opration">
-									<button
-										className="button"
-										onClick={this.removeData(id)}
-										disabled={this.props.selectedCryptos.length === 1}
-									>
-										Delete
-									</button>
-								</td>
-							</tr>
-						);
-					})}
-				</tbody>
-			</table>
+			<div>
+				<table>
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Symbol</th>
+							<th>Name</th>
+							<th className="sortable" onClick={this.sortByColumn('cmc_rank')}>
+								CMC Rank
+								{this.state.sortParams.column === 'cmc_rank'
+									? this.state.sortParams.direction === 'desc'
+										? ' ↓'
+										: ' ↑'
+									: ''}
+							</th>
+							<th className="sortable" onClick={this.sortByColumn('price')}>
+								Price (USD)
+								{this.state.sortParams.column === 'price'
+									? this.state.sortParams.direction === 'desc'
+										? ' ↓'
+										: ' ↑'
+									: ''}
+							</th>
+							<th>Operation</th>
+						</tr>
+					</thead>
+					<tbody>
+						{this.state.data.map((x) => {
+							const { id, symbol, name, cmc_rank, price } = x;
+							return (
+								<tr key={id}>
+									<td>{id}</td>
+									<td>{symbol}</td>
+									<td>{name}</td>
+									<td>{cmc_rank}</td>
+									<td>
+										{parseFloat(price).toLocaleString('en-US', {
+											style: 'currency',
+											currency: 'USD',
+										})}
+									</td>
+									<td className="opration">
+										<button
+											className="button"
+											onClick={this.removeData(id)}
+											disabled={this.props.selectedCryptos.length === 1}
+										>
+											Delete
+										</button>
+									</td>
+								</tr>
+							);
+						})}
+					</tbody>
+				</table>
+				{this.props.error && <div className="error">{this.props.error}</div>}
+			</div>
 		);
 	}
 }
@@ -109,9 +112,11 @@ class CryptoDataTable extends Component {
 const mapStateToProps = (state) => {
 	const { selectedCryptos } = state.cryptoFilters;
 	const { cryptoQuotes } = state.cryptoQuote;
+	const { error } = state.handleError;
 	return {
 		selectedCryptos,
 		cryptoQuotes,
+		error,
 	};
 };
 
