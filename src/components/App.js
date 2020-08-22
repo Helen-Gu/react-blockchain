@@ -5,7 +5,7 @@ import CryptoDataTable from './CryptoDataTable';
 export default class App extends Component {
 	render() {
 		return (
-			<div>
+			<div id="app">
 				<h1>StackAdapt Cryptos</h1>
 				<CryptoFilters />
 				<CryptoDataTable />

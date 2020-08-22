@@ -13,7 +13,9 @@ export const getCryptoQuote = (symbols) => (dispatch) => {
 			if (status.error_code !== 0) {
 				dispatch(handleError(status.error_code));
 			} else {
-				const payload = Object.keys(data).map((key) => data[key]);
+				const payload = {
+					data: Object.keys(data).map((key) => data[key]),
+				};
 				dispatch({
 					type: GET_CRYPTO_QUOTE,
 					payload,

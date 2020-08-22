@@ -1,5 +1,6 @@
 body {
 	font-family: Roboto, sans-serif;
+	padding: 20px 20%;
 }
 
 h1 {
@@ -7,16 +8,7 @@ h1 {
 	display: block;
 	position: relative;
 	margin-bottom: 50px;
-}
-
-h1:after {
-	content: '';
-	position: absolute;
-	width: 20%;
-	left: 0;
-	bottom: -15px;
-	height: 3px;
-	background: #f6554f;
+	text-align: center;
 }
 
 #app {
@@ -24,13 +16,19 @@ h1:after {
 	padding: 10px;
 }
 
-div.table {
-	padding: 10px;
-	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
-}
-
 table {
 	width: 100%;
+	padding: 10px;
+	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+	margin-top: 20px;
+}
+
+table th {
+	text-transform: uppercase;
+}
+
+.sortable {
+	cursor: pointer;
 }
 
 table th,
@@ -38,11 +36,9 @@ table td {
 	padding: 10px;
 }
 
-table th.text-right,
-table td.text-right {
-	text-align: right;
+tr:hover {
+	background-color: rgb(242, 238, 238);
 }
-
 table thead th {
 	border-top: none;
 	border-bottom: 1px solid #e9e9e9;
@@ -51,14 +47,24 @@ table thead th {
 	text-align: left;
 }
 
-table thead th:first-child {
-	padding-left: 0;
+.button {
+	border: none;
+	outline: none;
+	font-size: 11px;
+	font-family: 'Quicksand', sans-serif;
+	color: #f44336;
+	padding: 3px 10px;
+	border-radius: 8px;
+	cursor: pointer;
+	border: 1px solid #f44336;
+	background-color: transparent;
 }
 
-table tbody td:first-child {
-	padding-left: 0;
+.button:active {
+	border: 1px solid blue;
 }
 
-hr {
-	margin: 40px 0 30px;
+.button:disabled {
+	border: 1px solid #999999;
+	color: #666666;
 }

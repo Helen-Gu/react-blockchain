@@ -18,20 +18,26 @@ class CryptoFilters extends Component {
 		return (
 			<div>
 				<Select
+					styles={selectedCryptos.length === 1 ? customStyles : ''} // hide delete button when only 1 is selected
 					name="selectCryptosOptions"
 					value={selectedCryptos}
 					options={selectCryptosOptions}
 					onChange={(newVal) => setCryptoFilters('selectedCryptos', newVal)}
 					isMulti
-					clearable="false"
+					isClearable={false}
+					closeMenuOnSelect={false}
 				/>
 			</div>
 		);
 	}
 }
 
+const customStyles = {
+	multiValueRemove: (base) => ({ ...base, display: 'none' }),
+};
+
 const mapStateToProps = (state) => {
-	const { selectedCryptos, selectCryptosOptions } = state.manageCryptoFilters;
+	const { selectedCryptos, selectCryptosOptions } = state.cryptoFilters;
 	return {
 		selectedCryptos,
 		selectCryptosOptions,
